@@ -1,0 +1,23 @@
+<% posts.each do |post| %>
+  
+<div class="posts">
+      <% posts.each do |post| %>
+        <div class="post">
+
+          <h2 class="title">
+            <%= post['newpost'] %>
+          </h2>
+
+          <small class="meta">
+            <span class="name">by <%= post['name'] %> -</span>
+            <em class="created_at"><%= post['created_at'] %></em>
+          </small>
+
+        </div>
+        <hr />
+      <% end %>
+    </div>
+
+<% end %>  
+
+

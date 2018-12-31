@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="//code.angularjs.org/snapshot/angular-animate.js"></script>
+  </head>    	
+  <body>
+    <div class="fixed-header">
+        <div class="container" align="right">
+            <nav>
+		<% if user_signed_in? %>
+		  <%= link_to 'change password', edit_user_registration_path, :class => 'navbar-link' %> 
+		  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+		<% end %>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+	<center>
+	<% if notice %>
+	  <p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	  <p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+	<%= yield %>
+	</center>
+   </div>    
+    <div class="fixed-footer">
+        <div class="container">Copyright &copy; 2016 Your Company</div>        
+    </div>
+  </body>
+</html>
